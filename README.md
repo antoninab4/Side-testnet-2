@@ -59,18 +59,6 @@ git checkout v0.6.0
 # Build binaries*** make install
 make build
 ```
-
-```
-sided config chain-id side-testnet-2
-sided config keyring-backend test
-sided config node tcp://localhost:26357
-```
-Initialize The Node
-```
-# Initialize the node
-sided init $MONIKER --chain-id side-testnet-2
-```
-
 ```
 # Prepare binaries for Cosmovisor
 mkdir -p ~/.side
@@ -95,6 +83,18 @@ Set Up Cosmovisor And Create The Corresponding Service
 # Download and install Cosmovisor
 go install cosmossdk.io/tools/cosmovisor/cmd/cosmovisor@latest
 ```
+```
+sided config chain-id side-testnet-2
+sided config keyring-backend test
+sided config node tcp://localhost:26357
+```
+Initialize The Node
+```
+# Initialize the node
+sided init $MONIKER --chain-id side-testnet-2
+```
+
+
 ```
 # Create and start service
 sudo tee /etc/systemd/system/sided.service > /dev/null <<EOF
